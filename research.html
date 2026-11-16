@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research · Tian Yu</title>
+<meta name="description" content="Tian Yu's cardiac research in the van Berlo Lab and Guo Lab.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="p-research">
+<div class="binder">
+  <nav class="tabs">
+    <a href="index.html" class="t-home">Tian Yu</a>
+    <a href="research.html" class="t-research on" aria-current="page">Research</a>
+    <a href="shadowing.html" class="t-shadow">Shadowing</a>
+    <a href="volunteer.html" class="t-volunteer">Volunteer</a>
+    <a href="life.html" class="t-life">Life</a>
+    <a href="soccer.html" class="t-soccer">Soccer</a>
+  </nav>
+
+  <main class="sheet">
+    <h1>Research</h1>
+    <p class="lede">
+      I've been in Dr. Jop van Berlo's lab at the Lillehei Heart Institute since November 2025. Adult hearts barely heal after
+      injury, and most of what I do is about understanding why.
+    </p>
+
+    <!-- Project 1 -->
+    <div class="col">
+      <h2>Macrophages in a growing heart</h2>
+      <p>
+        My own subproject, approved for directed research. Macrophages are immune cells that live in heart tissue. I'm comparing how
+        they multiply when the heart grows normally against when it remodels after damage. I give mice EdU and then BrdU, which mark
+        cells each time they copy their DNA, so I can tell which macrophages divided more than once. I'm also looking at how monocytes
+        coming in from the blood change that picture.
+      </p>
+      <p>
+        Most days that means cutting frozen heart sections, staining them, a lot of antibody troubleshooting, imaging, and counting.
+        I also grow macrophages from bone marrow.
+      </p>
+    </div>
+
+    <figure class="fig" id="fig1">
+      <svg viewBox="0 0 720 330" role="img" aria-label="Animation: two labels given at different times mark dividing macrophages">
+        <text class="tx-s" x="60" y="16">time</text>
+        <line class="ln-s" x1="60" y1="40" x2="680" y2="40"/>
+        <rect x="170" y="26" width="80" height="28" fill="var(--ink)" opacity=".06"/>
+        <rect x="430" y="26" width="80" height="28" fill="var(--accent)" opacity=".07"/>
+        <text class="tx" x="210" y="16" text-anchor="middle">EdU</text>
+        <text class="tx-a" x="470" y="16" text-anchor="middle">BrdU</text>
+        <line id="ph" class="ln" x1="60" y1="24" x2="60" y2="56" stroke-width="2"/>
+        <g id="cells"></g>
+        <g transform="translate(60 304)">
+          <circle class="ln-s" cx="10" cy="-5" r="10"/><circle class="fill-i" cx="10" cy="-5" r="4.5"/>
+          <text class="tx-s" x="28" y="0">EdU only <tspan id="cE" class="tx">–</tspan></text>
+          <circle class="ln-a" cx="210" cy="-5" r="10"/>
+          <text class="tx-s" x="228" y="0">BrdU only <tspan id="cB" class="tx">–</tspan></text>
+          <circle class="ln-a" cx="420" cy="-5" r="10"/><circle class="ln-a" cx="420" cy="-5" r="13" stroke-width="1"/><circle class="fill-i" cx="420" cy="-5" r="4.5"/>
+          <text class="tx-s" x="440" y="0">both: divided again <tspan id="cBoth" class="tx-a">–</tspan></text>
+        </g>
+      </svg>
+      <div class="fig-controls"><button type="button" id="fig1Replay">Replay</button></div>
+      <figcaption>
+        <b>Fig. 1.</b> Two labels, given at different times, mark cells that are copying their DNA. A macrophage that carries both
+        (black center and red ring) divided during each window, so it divided more than once. Schematic, not data.
+      </figcaption>
+    </figure>
+
+    <!-- Project 2 -->
+    <div class="col">
+      <h2>How the heart matures</h2>
+      <p>
+        I stained heart tissue from different stages of development and measured how big the muscle cells were at each one. That
+        went into this paper:
+      </p>
+      <p class="cite">
+        Mikkila JL, Clark AP, Wang R, Torniainen AA, Souza-Neto F, <b>Yu T</b>, et al., van Berlo JH.
+        High-temporal analysis identifies the heart matures in four distinct phases.
+        <i>Nature Cardiovascular Research</i>, under review, 2026.
+      </p>
+    </div>
+
+    <figure class="fig" id="fig2">
+      <svg viewBox="0 0 720 250" role="img" aria-label="Cross-section of heart muscle cells that grow as the slider moves">
+        <defs><clipPath id="tissueClip"><rect x="0" y="0" width="720" height="250" rx="3"/></clipPath></defs>
+        <g clip-path="url(#tissueClip)"><g id="tissue"></g></g>
+        <rect class="ln-s" x="0" y="0" width="720" height="250" rx="3"/>
+      </svg>
+      <div class="fig-controls">
+        <span>Earlier</span>
+        <input type="range" id="age" min="0" max="1000" value="0" aria-label="Developmental stage">
+        <span>Later</span>
+        <span style="margin-left:auto">relative cell area <b id="area" style="color:var(--accent);font-weight:500">×1.0</b></span>
+      </div>
+      <figcaption>
+        <b>Fig. 2.</b> Heart muscle cells in cross-section, outlined the way WGA stain outlines cell membranes. As the heart matures,
+        each cell gets much larger. Tian measured that across development for the paper, which splits maturation into four distinct phases.
+        Drag to grow them. Illustration, not data.
+      </figcaption>
+    </figure>
+
+    <!-- Project 3 -->
+    <div class="col">
+      <h2>WWC2 and Hippo–YAP signaling</h2>
+      <p>
+        A project I started myself. The Hippo–YAP pathway is part of what stops adult heart muscle cells from dividing. I'm trying to
+        find what controls it upstream, using where YAP sits inside the cell as the readout. After the cell experiments, I moved to mice:
+        I do the heart attack (myocardial infarction) surgeries and the miRNA injections myself.
+      </p>
+    </div>
+
+    <figure class="fig" id="fig3">
+      <svg viewBox="0 0 720 320" role="img" aria-label="Diagram: Hippo keeps YAP out of the nucleus; when Hippo is off, YAP enters and turns on growth genes">
+        <rect class="ln-s" x="10" y="10" width="700" height="300" rx="40"/>
+        <text class="tx-s" x="40" y="292">heart muscle cell</text>
+
+        <rect class="ln-a" x="48" y="46" width="112" height="44" rx="3"/>
+        <text class="tx-a" x="104" y="74" text-anchor="middle">WWC2</text>
+        <text class="tx-s" x="104" y="110" text-anchor="middle">Tian's question</text>
+        <line class="ln-a" x1="160" y1="68" x2="214" y2="68" stroke-dasharray="4 3"/>
+        <path class="fill-a" d="M222 68 l-9 -5 v10 z"/>
+        <text class="tx-a" x="187" y="58" text-anchor="middle">?</text>
+
+        <rect class="ln hippo-box" x="224" y="46" width="166" height="44" rx="3"/>
+        <text class="tx" x="307" y="74" text-anchor="middle">Hippo kinases</text>
+        <line class="ln hippo-arrow" x1="307" y1="90" x2="307" y2="150"/>
+        <path class="fill-i hippo-head" d="M307 158 l-5 -9 h10 z"/>
+        <text class="tx-s" x="318" y="128">adds a phosphate</text>
+
+        <circle class="ln" cx="565" cy="185" r="108"/>
+        <text class="tx-s" x="565" y="100" text-anchor="middle">nucleus</text>
+        <path class="ln" d="M500 228 c12 -10 24 10 36 0 s24 10 36 0 s24 10 36 0"/>
+        <text id="genesOff" class="tx-s" x="565" y="262" text-anchor="middle">growth genes off</text>
+        <text id="genesOn" class="tx-a" x="565" y="262" text-anchor="middle">growth genes on</text>
+
+        <g id="yap" style="transform: translate(307px, 196px)">
+          <circle class="fill-a" r="22"/>
+          <text class="tx-w" y="4.5" text-anchor="middle">YAP</text>
+          <g id="yapP"><circle class="fill-i" cx="17" cy="-17" r="9"/><text x="17" y="-13" text-anchor="middle" fill="#fff" font-size="11">P</text></g>
+        </g>
+      </svg>
+      <div class="fig-controls">
+        <button type="button" id="hOn" class="on">Hippo active</button>
+        <button type="button" id="hOff">Hippo off</button>
+      </div>
+      <figcaption>
+        <b>Fig. 3.</b> When Hippo is active, it tags YAP with a phosphate and keeps it out of the nucleus. When Hippo is off, YAP moves in
+        and switches on genes that let heart muscle cells divide. Tian uses where YAP sits as his readout, and is testing how WWC2 controls
+        the switch. Schematic.
+      </figcaption>
+    </figure>
+
+    <hr>
+
+    <div class="col">
+      <h2>Summer 2026, Beijing</h2>
+      <p>
+        From May to August I was a visiting researcher in Dr. Yuxuan Guo's lab at Peking University's Institute of Cardiovascular
+        Science. I helped design engineered molecular tools aimed at LMNA-related cardiomyopathy, an inherited heart muscle disease,
+        and tested them with cloning, PCR, Western blots, flow cytometry, and RNA extraction.
+      </p>
+    </div>
+
+    <figure class="fig" id="fig4">
+      <svg viewBox="0 0 720 240" role="img" aria-label="Diagram of the nuclear lamina with a weak spot caused by an LMNA mutation">
+        <circle cx="200" cy="120" r="90" fill="var(--ink)" opacity=".03"/>
+        <circle class="lamina" cx="200" cy="120" r="90"/>
+        <path d="M268.9 62.1 A90 90 0 0 1 289.7 112.2" stroke="var(--accent)" stroke-width="11" fill="none"/>
+        <line class="ln-a" x1="290" y1="88" x2="350" y2="140" stroke-width="1"/>
+        <text class="tx-s" x="200" y="125" text-anchor="middle">nucleus</text>
+
+        <text class="tx" x="350" y="62">Nuclear lamina</text>
+        <text class="tx-s" x="350" y="84">A mesh of lamin A/C lining the nucleus,</text>
+        <text class="tx-s" x="350" y="102">built from the LMNA gene.</text>
+        <text class="tx-a" x="350" y="152">An LMNA mutation weakens it</text>
+        <text class="tx-s" x="350" y="174">and can cause a form of inherited heart</text>
+        <text class="tx-s" x="350" y="192">muscle disease: LMNA cardiomyopathy.</text>
+      </svg>
+      <figcaption><b>Fig. 4.</b> The target of the Peking University project. Schematic.</figcaption>
+    </figure>
+
+    <p class="small" style="margin-top:48px">
+      Funded in part by a $1,800 Undergraduate Research Opportunities Program award. Dean's List, 2025.
+      I'm also trained on the scanning electron microscope.
+    </p>
+
+    <footer class="sheet-foot">
+      <span><a href="mailto:yu000733@umn.edu">yu000733@umn.edu</a></span>
+      <a class="next" href="shadowing.html">Shadowing →</a>
+    </footer>
+  </main>
+</div>
+<script src="main.js"></script>
+<script src="figures.js"></script>
+</body>
+</html>
